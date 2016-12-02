@@ -1,0 +1,10 @@
+elasticsearch:
+  image: docker.cargosmart.com/app/elasticsearch:5.0.1
+  container_name: elasticsearch-image
+  restart: always
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  volumes:
+    - /root/elasticstack/elasticsearch/logs/:/usr/share/elasticsearch/logs
+    - /root/elasticstack/elasticsearch/data/:/usr/share/elasticsearch/data

@@ -1,0 +1,9 @@
+logstash:
+  image: eason02/logstash:5.0.1
+  container_name: logstash-image
+  restart: always
+  ports:
+    - "5000:5000"
+    - "5044:5044"
+  volumes:
+    - /root/elasticstack/logstash/logs/:/var/log/logstash
