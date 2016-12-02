@@ -1,0 +1,6 @@
+kibana:
+  image: eason02/kibana:5.0.1
+  container_name: kibana-image
+  restart: always
+  ports:
+    - "5601:5601"
