@@ -2,9 +2,13 @@ elasticsearch:
   image: eason02/elasticsearch:5.0.1
   container_name: elasticsearch-image
   restart: always
+  environment:
+   - env=qa
+   - elasticsearchHost=localhost
   ports:
     - "9200:9200"
     - "9300:9300"
   volumes:
     - /root/elasticstack/elasticsearch/logs/:/usr/share/elasticsearch/logs
     - /root/elasticstack/elasticsearch/data/:/usr/share/elasticsearch/data
+    - /root/elasticstack/elasticsearch/config/qa/:/usr/share/elasticsearch/config/

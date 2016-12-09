@@ -13,9 +13,11 @@ RUN set -x && \
         rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch && \
         yum -y install logstash && \
         rm -rf /etc/logstash/* && \
-        ls -R /etc/logstash
+        ls -R /etc/logstash && \
+        cd /etc/logstash && \
+        rm -rf *
 
-COPY ./config/ /etc/logstash/
+# COPY ./config/ /etc/logstash/
 
 RUN ls -R /etc/logstash/
 
@@ -30,18 +32,8 @@ RUN set -x && \
         ls -ltr /var/log/ && \
         echo securerandom.source=file:/dev/urandom >> /usr/java/jdk1.8.0_112/jre/lib/security/java.security
 
-COPY ./tls/certs/logstash-forwarder.crt /etc/pki/tls/certs/logstash-forwarder.crt
-COPY ./tls/private/logstash-forwarder.key /etc/pki/tls/private/logstash-forwarder.key
-
-RUN ls -R /etc/pki/tls/certs/ && ls -R /etc/pki/tls/private/
-
-# Generate cert
-# RUN cd /etc/pki/tls && \
-#        openssl req -subj '/CN=<your logstash host domain>/' -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout private/logstash-forwarder.key -out certs/logstash-forwarder.crt
-
 EXPOSE 5000
 VOLUME /var/log/logstash
-# VOLUME /etc/pki/tls/private
-# VOLUME /etc/pki/tls/certs
-# VOLUME /etc/logstash
+VOLUME /etc/logstash/
+
 CMD ["logstash"]

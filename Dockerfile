@@ -1,5 +1,5 @@
 # From base OS image
-FROM eason02/centos:7.2
+FROM eason02/centos:7
 
 # Maintainer
 MAINTAINER eason.lau02@hotmail.com
