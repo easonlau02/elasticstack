@@ -1,5 +1,8 @@
 # elasticstack
 ELK : elasticsearch + logstash + kibana
+<<<<<<< HEAD
+Version : 5.0.1 + 5.0.1 + 5.0.1
+=======
 Forwarder : filebeat port 5400
 
 ## Elasticsearch 5.1
@@ -14,3 +17,4 @@ Docker solution for Logstash provided by [elastic.co](https://www.elastic.co/gui
 
 
 Docker solution for Kibana provided by [elastic.co](https://www.elastic.co/guide/en/kibana/current/index.html), an open source analytics and visualization platform designed to work with Elasticsearch. You use Kibana to search, view, and interact with data stored in Elasticsearch indices. 
+>>>>>>> elk5.0
