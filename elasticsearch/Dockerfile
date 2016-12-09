@@ -28,17 +28,18 @@ RUN set -x && \
 
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 
-COPY ./config /usr/share/elasticsearch/config/
+# COPY ./config /usr/share/elasticsearch/config/
 
-RUN set -x && \
-    ls -R /usr/share/elasticsearch/config && \
-    cd /usr/share/elasticsearch/config && \
-    chown root:elasticsearch -R *
+# RUN set -x && \
+#    ls -R /usr/share/elasticsearch/config && \
+#    cd /usr/share/elasticsearch/config && \
+#    chown root:elasticsearch -R *
 
 EXPOSE 9200 9300
 
 VOLUME /usr/share/elasticsearch/data
 VOLUME /usr/share/elasticsearch/logs
+VOLUME /usr/share/elasticsearch/config
 
 WORKDIR /usr/share/elasticsearch/bin
 

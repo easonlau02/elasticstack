@@ -14,9 +14,11 @@ RUN  set -x && \
      rpm --install kibana-5.0.1-x86_64.rpm && \
      rm -rf /etc/kibana/*
 
-COPY ./config/ /etc/kibana/
+# COPY ./config/ /etc/kibana/
 
 ENV PATH /usr/share/kibana/bin:$PATH
 EXPOSE 5601
+
+VOLUME /etc/kibana/kibana.yml
 
 CMD ["kibana"]

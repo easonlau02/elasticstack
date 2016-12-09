@@ -2,8 +2,14 @@ logstash:
   image: eason02/logstash:5.0.1
   container_name: logstash-image
   restart: always
+  environment:
+   - env=qa
+   - elasticsearchHost=localhost
   ports:
     - "5000:5000"
     - "5044:5044"
   volumes:
-    - /root/elasticstack/logstash/logs/:/var/log/logstash
+    - ~/elasticstack/logstash/logs/:/var/log/logstash
+    - ~/elasticstack/logstash/tls/qa/certs/logstash-forwarder.crt:/etc/pki/tls/certs/logstash-forwarder.crt
+    - ~/elasticstack/logstash/tls/qa/private/logstash-forwarder.key:/etc/pki/tls/private/logstash-forwarder.key
+    - ~/elasticstack/logstash/config/qa/:/etc/logstash/
