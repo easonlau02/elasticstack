@@ -1,9 +1,9 @@
 # elasticstack
 ELK : elasticsearch + logstash + kibana
 
-Version : 5.0.1 + 5.0.1 + 5.0.1
-Version : 5.1.1 + 5.1.1 + 5.1.1
-Version : 5.x + 5.x + 5.x
+* Version : 5.0.1 + 5.0.1 + 5.0.1
+* Version : 5.1.1 + 5.1.1 + 5.1.1
+* Version : 5.x + 5.x + 5.x
 
 Forwarder : filebeat port 5400
 
