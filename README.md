@@ -41,7 +41,7 @@ Forwarder : filebeat port 5044
       elasticsearch:
         ...
         environment:
-          - env=*${environment}*
+          - env=${environment}
         volumes:
           ...
           - ${E_LOCAL_DATA_PATH}:/usr/share/elasticsearch/data
@@ -51,13 +51,13 @@ Forwarder : filebeat port 5044
         image: eason02/logstash:5.0.1
         ...
         environment:
-          - env=*${environment}*
+          - env=${environment}
           ...
         ...
       kibana:
         ...
         environment:
-          - env=*${environment}*
+          - env=${environment}
         extra_hosts:
           - "elasticsearchHost:*${K_ELASTICSEARCH_HOST_IP}*"
         ...
