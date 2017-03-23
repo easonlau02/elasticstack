@@ -14,13 +14,13 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4
     chmod +x /usr/local/bin/gosu && \
     gosu nobody true
 
+COPY ./elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo
+
 # Install elasticsearch
 RUN set -x && \
     cd ~ && \
     rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch && \
-    wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.1.rpm && \
-    sha1sum elasticsearch-5.0.1.rpm && \
-    rpm --install elasticsearch-5.0.1.rpm && \
+    yum -y install elasticsearch && \
     mkdir -p /usr/share/elasticsearch/config && \
     mkdir -p /usr/share/elasticsearch/data && \
     mkdir -p /usr/share/elasticsearch/logs && \
