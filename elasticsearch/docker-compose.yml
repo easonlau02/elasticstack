@@ -1,14 +1,21 @@
-elasticsearch:
-  image: eason02/elasticsearch:5.0.1
-  container_name: elasticsearch-image
-  restart: always
-  environment:
-   - env=qa
-   - elasticsearchHost=localhost
-  ports:
-    - "9200:9200"
-    - "9300:9300"
-  volumes:
-    - ~/elasticstack/elasticsearch/logs/:/usr/share/elasticsearch/logs
-    - ~/elasticstack/elasticsearch/data/:/usr/share/elasticsearch/data
-    - ~/elasticstack/elasticsearch/config/qa/:/usr/share/elasticsearch/config/
+version: '2'
+services:
+  elasticsearch:
+    image: eason02/elasticsearch:5.0.1
+    container_name: elasticsearch-image
+    restart: always
+    network_mode: host
+    environment:
+      - env=${environment}
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ./logs/:/usr/share/elasticsearch/logs
+      - ${E_LOCAL_DATA_PATH}:/usr/share/elasticsearch/data
+      - ./config/:/usr/share/elasticsearch/config/
+    logging:
+      driver: json-file
+      options:
+        max-file: '5'
+        max-size: 10m

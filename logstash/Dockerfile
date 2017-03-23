@@ -11,7 +11,9 @@ RUN set -x && \
         yum -y install which && \
         yum -y install openssl && \
         rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch && \
-        yum -y install logstash && \
+        wget https://artifacts.elastic.co/downloads/logstash/logstash-5.0.1.rpm && \
+        sha1sum logstash-5.0.1.rpm && \
+        rpm --install logstash-5.0.1.rpm && \
         rm -rf /etc/logstash/* && \
         ls -R /etc/logstash && \
         cd /etc/logstash && \
