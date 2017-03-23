@@ -5,14 +5,12 @@ ELK : elasticsearch + logstash + kibana
 * Version : 5.1.1 + 5.1.1 + 5.1.1
 * Version : 5.x + 5.x + 5.x
 
-Forwarder : filebeat port 5400
+Forwarder : filebeat port 5044
 
 ### Prerequisite
 * OS : Centos 7.x
 * Docker engine > 1.12.x
 * Docker-compose > 1.11.x
-
-======
 
 ### Clone GIT folder under your user home
     
@@ -20,7 +18,6 @@ Forwarder : filebeat port 5400
     git clone https://github.com/easonlau02/elasticstack.git
 
 ## All 3 components(ELK) in one machine
-------
 
 #### Change below `~/elasticstack/.env` file only
     # ~/elasticstack/.env
@@ -69,8 +66,8 @@ Forwarder : filebeat port 5400
     cd ~/elaasticstack
     docker-compose up -d
     
-### Not all 3 in one machine
-------
+## Not all 3 in one machine
+
 #### Three .env you might change. But will simpler than before
 `~/elasticstack/elasticsearch/.env`
 
@@ -109,23 +106,22 @@ Forwarder : filebeat port 5400
 * [`~/elasticstack/logstash/docker-compose.yml`](https://github.com/easonlau02/elasticstack/blob/master/logstash/docker-compose.yml)
 * [`~/elasticstack/kibana/docker-compose.yml`](https://github.com/easonlau02/elasticstack/blob/master/kibana/docker-compose.yml)
 #### Startup ELK service at corresponding machine respectively.
-*Elasticsearch at host1*:
+**Elasticsearch at host1**:
     
     cd ~/elasticstack/elasticsearch
     docker-compose up -d
     
-*Logstash at host2*:
+**Logstash at host2**:
     
     cd ~/elasticstack/logstash
     docker-compose up -d
     
-*Kibana at host3*:
+**Kibana at host3**:
 
     cd ~/elasticstack/kibana
     docker-compose up -d
 
-------
-### Access kibana via `<kibanahost>:5601`, you can see below screenshot
+## Access kibana via `<kibanahost>:5601`, you can see below screenshot
 ![alt text](https://github.com/easonlau02/elasticstack/blob/master/kibana_up.png "kibana_up")
 
-You can see *Unable to fetch mapping. Do you have indices match...*, caused by no log feed.
+You can see **Unable to fetch mapping. Do you have indices match...**, caused by no log feed.
