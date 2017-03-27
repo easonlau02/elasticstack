@@ -122,6 +122,6 @@ Forwarder : filebeat port 5044
     docker-compose up -d
 
 ## Access kibana via `<kibanahost>:5601`, you can see below screenshot
-![alt text](https://github.com/easonlau02/elasticstack/blob/master/kibana_up.png "kibana_up")
+![alt text](https://raw.githubusercontent.com/easonlau02/elasticstack/master/kibana_up.png "kibana_up")
 
 You can see **Unable to fetch mapping. Do you have indices match...**, caused by no log feed.
