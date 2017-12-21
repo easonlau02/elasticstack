@@ -1,0 +1,34 @@
+version: '2'
+services:
+  elkconfiguredata:
+    labels:
+      io.rancher.container.pull_image: always
+    image: eason02/elk-data-volume:latest
+    volumes:
+      - /etc/logstash/
+    command:
+      - tail 
+      - -f 
+      - /etc/logstash/logstash.yml
+  logstash:
+    image: eason02/logstash:5.3.1
+    container_name: single-logstash-5.3.1
+    lables:
+      io.rancher.sidekicks: elkconfiguredata
+    restart: always
+    network_mode: host
+    environment:
+      - env=QA
+      - L_ELASTICSEARCH_HOST=${L_ELASTICSEARCH_HOST_ENV}
+      - L_CONF_PROJECT_KEY=${L_CONF_PROJECT_KEY}
+    ports:
+      - "5044:5044"
+    volumes_from:
+      - elkconfiguredata
+    volumes:
+      - ./logs/:/var/log/logstash
+    logging:
+      driver: json-file
+      options:
+        max-file: '5'
+        max-size: 10m

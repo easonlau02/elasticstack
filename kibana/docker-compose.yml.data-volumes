@@ -1,0 +1,32 @@
+version: '2'
+services:
+  elkconfiguredata:
+    labels:
+      io.rancher.container.pull_image: always
+    image: eason02/elk-data-volume:latest
+    volumes:
+      - /etc/kibana/
+      - /usr/share/kibana/plugins/
+    command:
+      - tail
+      - -f
+      - /etc/logstash/logstash.yml
+  kibana:
+    image: eason02/kibana:5.3.1
+    container_name: single-kibana-5.3.1
+    lables:
+      io.rancher.sidekicks: elkconfiguredata
+    restart: always
+    network_mode: host
+    environment:
+      - env=QA
+      - elasticsearchHost=${K_ELASTICSEARCH_HOST_IP}
+    ports:
+      - "5601:5601"
+    volumes_from:
+      - elkconfiguredata
+    logging:
+      driver: json-file
+      options:
+        max-file: '5'
+        max-size: 10m
