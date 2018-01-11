@@ -12,8 +12,8 @@ elkconfiguredata:
     - -f
     - /etc/logstash/logstash.yml
 elasticsearch:
-  image: eason02/elasticsearch:5.6.3
-  container_name: elasticsearch-5.6.3
+  image: eason02/elasticsearch:6.0.0
+  container_name: elasticsearch-6.0.0
   restart: always
   net: host
   environment:
@@ -31,8 +31,8 @@ elasticsearch:
     - ./elasticsearch/logs/:/usr/share/elasticsearch/logs
     - ./elasticsearch/data/:/usr/share/elasticsearch/data
 logstash:
-  image: eason02/logstash:5.6.3
-  container_name: logstash-5.6.3
+  image: eason02/logstash:6.0.0
+  container_name: logstash-6.0.0
   restart: always
   net: host
   environment:
@@ -50,8 +50,8 @@ logstash:
   volumes:
     - ./logstash/logs/:/var/log/logstash
 kibana:
-  image: eason02/kibana:5.6.3
-  container_name: kibana-5.6.3
+  image: eason02/kibana:6.0.0
+  container_name: kibana-6.0.0
   restart: always
   net: host
   environment:
