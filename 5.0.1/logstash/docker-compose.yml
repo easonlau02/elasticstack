@@ -1,0 +1,20 @@
+version: '2'
+services:
+  logstash:
+    image: eason02/app/logstash:5.0.1
+    container_name: logstash-image
+    restart: always
+    network_mode: host
+    environment:
+      - env=${environment}
+      - L_ELASTICSEARCH_HOST=${L_ELASTICSEARCH_HOST_ENV}
+    ports:
+      - "5044:5044"
+    volumes:
+      - ./logs/:/var/log/logstash
+      - ./config/:/etc/logstash/
+    logging:
+      driver: json-file
+      options:
+        max-file: '5'
+        max-size: 10m
