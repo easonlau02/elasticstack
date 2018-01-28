@@ -4,7 +4,7 @@ ELK : elasticsearch + logstash + kibana
 * Version : [5.0.1](https://github.com/easonlau02/elasticstack/tree/master/5.0.1)
 * Version : [5.3.1](https://github.com/easonlau02/elasticstack/tree/master/5.3.1)
 * Version : [5.6.3](https://github.com/easonlau02/elasticstack/tree/master/5.6.3)
-* Version : [6.0.0](https://github.com/easonlau02/elasticstack/tree/master/6..0.0)
+* Version : [6.0.0](https://github.com/easonlau02/elasticstack/tree/master/6.0.0)
 * Version : [6.1.2](https://github.com/easonlau02/elasticstack/tree/master/6.1.2)
 
 Forwarder : filebeat port 5044

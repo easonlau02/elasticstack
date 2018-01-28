@@ -37,7 +37,7 @@ logstash:
   restart: always
   environment:
     - env=QA
-    - L_ELASTICSEARCH_HOST=<your_es_host>
+    - L_ELASTICSEARCH_HOST=xy920.local
     - L_CONF_PROJECT_KEY=default
   labels:
     io.rancher.container.pull_image: always
@@ -55,7 +55,7 @@ kibana:
   restart: always
   environment:
     - env=QA
-    - elasticsearchHost=<your_es_host>
+    - elasticsearchHost=xy920.local
   labels:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:host_label: stack=elk
