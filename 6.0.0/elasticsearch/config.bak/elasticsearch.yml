@@ -7,8 +7,8 @@
 # The primary way of configuring a node is via this file. This template lists
 # the most important settings you may want to configure for a production cluster.
 #
-# Please consult the documentation for further information on configuration options:
-# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+# Please see the documentation for further information on configuration options:
+# <https://www.elastic.co/guide/en/elasticsearch/reference/5.0/settings.html>
 #
 # ---------------------------------- Cluster -----------------------------------
 #
@@ -30,11 +30,11 @@
 #
 # Path to directory where to store the data (separate multiple locations by comma):
 #
-path.data: /usr/share/elasticsearch/data
+#path.data: /path/to/data
 #
 # Path to log files:
 #
-path.logs: /usr/share/elasticsearch/logs
+#path.logs: /path/to/logs
 #
 # ----------------------------------- Memory -----------------------------------
 #
@@ -53,13 +53,15 @@ path.logs: /usr/share/elasticsearch/logs
 # Set the bind address to a specific IP (IPv4 or IPv6):
 #
 #network.host: 192.168.0.1
+#network.host: 0.0.0.0
 #
 # Set a custom port for HTTP:
 #
 #http.port: 9200
 http.host: 0.0.0.0
 #
-# For more information, consult the network module documentation.
+# For more information, see the documentation at:
+# <https://www.elastic.co/guide/en/elasticsearch/reference/5.0/modules-network.html>
 #
 # --------------------------------- Discovery ----------------------------------
 #
@@ -68,11 +70,12 @@ http.host: 0.0.0.0
 #
 #discovery.zen.ping.unicast.hosts: ["host1", "host2"]
 #
-# Prevent the "split brain" by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):
+# Prevent the "split brain" by configuring the majority of nodes (total number of nodes / 2 + 1):
 #
 #discovery.zen.minimum_master_nodes: 3
 #
-# For more information, consult the zen discovery module documentation.
+# For more information, see the documentation at:
+# <https://www.elastic.co/guide/en/elasticsearch/reference/5.0/modules-discovery-zen.html>
 #
 # ---------------------------------- Gateway -----------------------------------
 #
@@ -80,7 +83,8 @@ http.host: 0.0.0.0
 #
 #gateway.recover_after_nodes: 3
 #
-# For more information, consult the gateway module documentation.
+# For more information, see the documentation at:
+# <https://www.elastic.co/guide/en/elasticsearch/reference/5.0/modules-gateway.html>
 #
 # ---------------------------------- Various -----------------------------------
 #

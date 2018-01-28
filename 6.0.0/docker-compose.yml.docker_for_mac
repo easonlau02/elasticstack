@@ -1,10 +1,12 @@
 elkconfiguredata:
   labels:
     io.rancher.container.pull_image: always
-  image: eason02/elk-data-volume:latest
+  image: eason02/elk-data-volume:6.0.0
   volumes:
+    - /usr/share/elasticsearch/etc/sysconfig/
     - /etc/kibana/
     - /etc/logstash/
+    - /etc/elasticsearch/
     - /usr/share/elasticsearch/config/
     - /usr/share/kibana/plugins/
   command:
@@ -15,7 +17,6 @@ elasticsearch:
   image: eason02/elasticsearch:6.0.0
   container_name: elasticsearch-6.0.0
   restart: always
-  net: host
   environment:
     - env=QA
   labels:
@@ -34,10 +35,9 @@ logstash:
   image: eason02/logstash:6.0.0
   container_name: logstash-6.0.0
   restart: always
-  net: host
   environment:
     - env=QA
-    - L_ELASTICSEARCH_HOST=localhost
+    - L_ELASTICSEARCH_HOST=<your_es_host>
     - L_CONF_PROJECT_KEY=default
   labels:
     io.rancher.container.pull_image: always
@@ -53,10 +53,9 @@ kibana:
   image: eason02/kibana:6.0.0
   container_name: kibana-6.0.0
   restart: always
-  net: host
   environment:
     - env=QA
-    - elasticsearchHost=localhost
+    - elasticsearchHost=<your_es_host>
   labels:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:host_label: stack=elk

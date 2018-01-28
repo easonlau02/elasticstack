@@ -7,6 +7,7 @@ MAINTAINER Eason Lau <eason.lau02@hotmail.com>
 RUN mkdir -p /usr/share/elasticsearch/config/ && \
     mkdir -p /usr/share/elasticsearch/plugins/
 
+COPY ./elasticsearch/etc/ /usr/share/elasticsearch/etc/
 COPY ./elasticsearch/config/ /usr/share/elasticsearch/config/
 COPY ./elasticsearch/plugins/ /usr/share/elasticsearch/plugins/
 

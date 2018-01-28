@@ -14,7 +14,7 @@ echo =================================================
 if [ -e $file ]
 then
 	echo Found docker file : $file
-        docker build -t eason02/elk-data-volume:latest -f $file $relatePath
+        docker build -t eason02/elk-data-volume:6.0.0 -f $file $relatePath
 else
 	echo Could not find docker file : $file
 fi

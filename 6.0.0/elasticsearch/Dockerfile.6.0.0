@@ -22,6 +22,7 @@ RUN set -x && \
     sha1sum elasticsearch-6.0.0.rpm && \
     rpm --install elasticsearch-6.0.0.rpm && \
     rm -rf elasticsearch-6.0.0.rpm && \
+    rm -rf /etc/sysconfig/elasticsearch && \
     mkdir -p /usr/share/elasticsearch/config && \
     mkdir -p /usr/share/elasticsearch/data && \
     mkdir -p /usr/share/elasticsearch/logs && \
@@ -30,11 +31,6 @@ RUN set -x && \
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 
 # COPY ./config /usr/share/elasticsearch/config/
-
-# RUN set -x && \
-#    ls -R /usr/share/elasticsearch/config && \
-#    cd /usr/share/elasticsearch/config && \
-#    chown root:elasticsearch -R *
 
 EXPOSE 9200 9300
 
