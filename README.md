@@ -2,10 +2,10 @@
 ELK : elasticsearch + logstash + kibana
 
 * Version : [5.0.1](https://github.com/easonlau02/elasticstack/tree/master/5.0.1)
-* Version : [5.3.1](https://github.com/easonlau02/elasticstack/tree/master/5.3.1)
-* Version : [5.6.3](https://github.com/easonlau02/elasticstack/tree/master/5.6.3)
-* Version : [6.0.0](https://github.com/easonlau02/elasticstack/tree/master/6.0.0)
-* Version : [6.1.2](https://github.com/easonlau02/elasticstack/tree/master/6.1.2)
+* Version : [5.3.1](https://github.com/easonlau02/elasticstack/tree/master/5.3.1) + [docker-compose.yml for linux](https://raw.githubusercontent.com/easonlau02/elasticstack/master/5.3.1/docker-compose.yml), [docker-compose.yml for docker_for_mac](https://raw.githubusercontent.com/easonlau02/elasticstack/master/5.3.1/docker-compose.yml.docker_for_mac)
+* Version : [5.6.3](https://github.com/easonlau02/elasticstack/tree/master/5.6.3) + [docker-compose.yml for linux](https://raw.githubusercontent.com/easonlau02/elasticstack/master/5.6.3/docker-compose.yml), [docker-compose.yml for docker_for_mac](https://raw.githubusercontent.com/easonlau02/elasticstack/master/5.6.3/docker-compose.yml.docker_for_mac)
+* Version : [6.0.0](https://github.com/easonlau02/elasticstack/tree/master/6.0.0) + [docker-compose.yml for linux](https://raw.githubusercontent.com/easonlau02/elasticstack/master/6.0.0/docker-compose.yml), [docker-compose.yml for docker_for_mac](https://raw.githubusercontent.com/easonlau02/elasticstack/master/6.0.0/docker-compose.yml.docker_for_mac)
+* Version : [6.1.2](https://github.com/easonlau02/elasticstack/tree/master/6.1.2) + [docker-compose.yml for linux](https://raw.githubusercontent.com/easonlau02/elasticstack/master/6.1.2/docker-compose.yml), [docker-compose.yml for docker_for_mac](https://raw.githubusercontent.com/easonlau02/elasticstack/master/6.1.2/docker-compose.yml.docker_for_mac)
 
 Forwarder : filebeat port 5044
 
