@@ -1,7 +1,11 @@
 # elasticstack
 ELK : elasticsearch + logstash + kibana
 
-* Version : 6.1.2
+* Version : [5.0.1](https://github.com/easonlau02/elasticstack/tree/master/5.0.1)
+* Version : [5.3.1](https://github.com/easonlau02/elasticstack/tree/master/5.3.1)
+* Version : [5.6.3](https://github.com/easonlau02/elasticstack/tree/master/5.6.3)
+* Version : [6.0.0](https://github.com/easonlau02/elasticstack/tree/master/6..0.0)
+* Version : [6.1.2](https://github.com/easonlau02/elasticstack/tree/master/6.1.2)
 
 Forwarder : filebeat port 5044
 
@@ -15,11 +19,12 @@ Forwarder : filebeat port 5044
     cd ~
     git clone https://github.com/easonlau02/elasticstack.git
 
-## All 3 components(ELK) in one machine
-
 ### Change config if you are using docker-for-mac under MAC
-* Replace <your_es_host> with your running host
-#### Startup ELK service at one machine
+* Replace <your_es_host> with your running host for below config
+```bash
+~/elasticstack/6.1.2/docker-compose.yml.docker_for_mac
+```
+### Startup ELK service at one machine
 * For linux user
 ```bash
 cd ~/elaticstack/6.1.2
@@ -31,7 +36,7 @@ cd ~/elasticstack/6.1.2
 docker-compose -f docker-compose.yml.docker_for_mac up -d
 ```
     
-## Access kibana via `<kibanahost>:5601`, you can see below screenshot
+### Access kibana via `<kibanahost>:5601`, you can see below screenshot
 ![alt text](https://raw.githubusercontent.com/easonlau02/elasticstack/master/6.1.2/kibana_up.png "kibana_up")
 
 You can see **Unable to fetch mapping. Do you have indices match...**, caused by no log feed.
