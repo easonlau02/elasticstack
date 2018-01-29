@@ -38,7 +38,7 @@ check_param(){
 replace_param_if_need() {
 	if [ "$(echo $platform | tr [A-Z] [a-z])" = "mac" ]; then
                 cat ./$elk_version/docker-compose.yml.docker_for_mac > $docker_compose_file
-		sed -i -e 's/<your_es_host>/$es_host/g' $docker_compose_file
+		sed -i -e "s/<your_es_host>/$es_host/g" $docker_compose_file
 	elif [ "$(echo $platform | tr [A-Z] [a-z] )" = "linux" ]; then
 		cat ./$elk_version/docker-compose.yml.linux > $docker_compose_file
 	fi
