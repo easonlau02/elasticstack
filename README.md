@@ -70,3 +70,6 @@ cd ~/elasticstack/6.1.2/
 docker-compose -f docker-compose.yml.docker_for_mac restart
 ```
 
+## Feedback and new requirement
+1. Fork it (https://github.com/easonlau02/elasticstack/fork)
+2. Comment below/requirement or [raise issue](https://github.com/easonlau02/elasticstack/issues)
