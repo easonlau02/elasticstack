@@ -28,7 +28,7 @@ Forwarder : filebeat port 5044
 * For linux user
 ```bash
 cd ~/elaticstack/6.1.2
-docker-compose up -d
+docker-compose -f docker-compose.yml.linux up -d
 ```
 * For Mac user
 ```bash
@@ -41,12 +41,27 @@ docker-compose -f docker-compose.yml.docker_for_mac up -d
 
 You can see **Unable to fetch mapping. Do you have indices match...**, caused by no log feed.
 
-### Here is important!!
-We managed all config file in images `eason02/elk-data-volume:<version>`, so if you need to change/add config for below folder.
+## HERE IS IMPORTANT!!!!
+We managed all config file in images `eason02/elk-data-volume:6.1.2`, so if you need to change/add config for below folder.
 ```bash
-~/elasticstack/<version>/elasticsearch/config/
-~/elasticstack/<version>/logstash/config/
-~/elasticstack/<version>/kibana/config/
+~/elasticstack/6.1.2/elasticsearch/config/
+~/elasticstack/6.1.2/logstash/config/
+~/elasticstack/6.1.2/kibana/config/
 ```
-And then run below related scripts to build new config image `eason02/elk-data-volume:<version>`.
+And then run below related scripts to build new config image `eason02/elk-data-volume:6.1.2`.
+```bash
+cd ~/elasticstack/6.1.2/
+chmod +x build_data_volumes_for_elk.sh
+./build_data_volumes_for_elk.sh
+```
 Restart elk service to take effect.
+* For linux user:
+```bash
+cd ~/elasticstack/6.1.2/
+docker-compose -f docker-compose.yml.linux restart
+```
+* For Mac user:
+```bash
+cd ~/elasticstack/6.1.2/
+docker-compose -f docker-compose.yml.docker_for_mac restart
+```
