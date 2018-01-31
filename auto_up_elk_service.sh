@@ -9,7 +9,6 @@ docker_compose_file=./$elk_version/docker-compose.yml
 #platform_list
 version_list=(5.3.1 5.6.3 6.0.1 6.1.2)
 
-echo $1 $2 $3
 usage() {
 	echo 'usage: ./up_service.sh <linux|mac> ' '<'${version_list[@]}'>' '<your_hostname>'
         exit 0

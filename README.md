@@ -33,11 +33,11 @@ chmod +x auto_up_elk_service.sh
 ./auto_up_elk_service.sh
 usage: ./up_service.sh <linux|mac>  <5.3.1 5.6.3 6.0.1 6.1.2> <your_hostname>
 ```
-For linux user:
+* For linux user
 ```bash
 ./auto_up_elk_service.sh linux 6.1.2
 ```
-For Mac user:
+* For Mac user
 ```bash
 ./auto_up_elk_service.sh mac 6.1.2 <your_hostname>
 ```
