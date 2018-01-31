@@ -9,18 +9,39 @@ ELK : elasticsearch + logstash + kibana
 
 Forwarder : filebeat port 5044
 
-### Prerequisite
+## Prerequisite
 
 * OS : Centos 7.x
 * Docker engine > 1.12.x
 * Docker-compose > 1.11.x
 
-### Clone GIT folder under your user home
+## Clone GIT folder under your user home
     
     cd ~
     git clone https://github.com/easonlau02/elasticstack.git
+## Now support 4 version for you to choose below way to up service
+```bash
+5.3.1/5.6.3/6.0.0/6.1.2
+```
+below take version 6.1.2 for example.
 
-### Now support 4 version for you to choose below way to up service: 5.3.1/5.6.3/6.0.0/6.1.2, below take version 6.1.2 for example:
+## The Simplest way to start all component:
+### Usage
+```bash
+cd ~/elasticstack/
+chmod +x auto_up_elk_service.sh
+./auto_up_elk_service.sh
+usage: ./up_service.sh <linux|mac>  <5.3.1 5.6.3 6.0.1 6.1.2> <your_hostname>
+```
+For linux user:
+```bash
+./auto_up_elk_service.sh linux 6.1.2
+```
+For Mac user:
+```bash
+./auto_up_elk_service.sh mac 6.1.2 <your_hostname>
+```
+## The second way to start all component by version folder
 ### Change config if you are using docker-for-mac under MAC
 * Replace <your_es_host> with your running host for below config
 ```bash
