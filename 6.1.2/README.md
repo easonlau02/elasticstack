@@ -40,3 +40,13 @@ docker-compose -f docker-compose.yml.docker_for_mac up -d
 ![alt text](https://raw.githubusercontent.com/easonlau02/elasticstack/master/6.1.2/kibana_up.png "kibana_up")
 
 You can see **Unable to fetch mapping. Do you have indices match...**, caused by no log feed.
+
+### Here is important!!
+We managed all config file in images `eason02/elk-data-volume:<version>`, so if you need to change/add config for below folder.
+```bash
+~/elasticstack/<version>/elasticsearch/config/
+~/elasticstack/<version>/logstash/config/
+~/elasticstack/<version>/kibana/config/
+```
+And then run below related scripts to build new config image `eason02/elk-data-volume:<version>`.
+Restart elk service to take effect.
