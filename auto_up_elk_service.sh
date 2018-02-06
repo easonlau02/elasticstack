@@ -9,12 +9,13 @@ docker_compose_file=./$elk_version/docker-compose.yml
 #platform_list
 version_list=(5.3.1 5.6.3 6.0.1 6.1.2)
 
-echo $1 $2 $3
+# Show usage if required param is missing.
 usage() {
 	echo 'usage: ./up_service.sh <linux|mac> ' '<'${version_list[@]}'>' '<your_hostname>'
         exit 0
 }
 
+# Check required param
 check_param(){
 	if [ "$(echo $platform | tr [A-Z] [a-z] )" = "linux" ]; then
 		echo $platform
@@ -35,6 +36,7 @@ check_param(){
         fi
 }
 
+# replace param and generate docker-compose file
 replace_param_if_need() {
 	if [ "$(echo $platform | tr [A-Z] [a-z])" = "mac" ]; then
                 cat ./$elk_version/docker-compose.yml.docker_for_mac > $docker_compose_file
@@ -43,6 +45,8 @@ replace_param_if_need() {
 		cat ./$elk_version/docker-compose.yml.linux > $docker_compose_file
 	fi
 }
+
+# Start service user docker-compose file.
 up_service(){
 	docker-compose -f ./$elk_version/docker-compose.yml up -d
 }
