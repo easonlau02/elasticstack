@@ -14,7 +14,11 @@ if [ "$1" = 'elasticsearch' -a "$(id -u)" = '0' ]; then
         chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/data
         chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/logs
         chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/etc/sysconfig/elasticsearch
-        ln -s /usr/share/elasticsearch/etc/sysconfig/elasticsearch /etc/sysconfig/
+        if [ ! -h /etc/sysconfig/elasticsearch ]; then
+		ln -s /usr/share/elasticsearch/etc/sysconfig/elasticsearch /etc/sysconfig/
+        else
+		echo "Soft link /etc/sysconfig/elasticsearh exists."
+	fi
         
         set -- gosu elasticsearch "$@"
         #exec gosu elasticsearch "$BASH_SOURCE" "$@"
